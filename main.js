@@ -2,7 +2,7 @@ var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 var collection = "1459961";
 
-var imagesrc =  "https://source.unsplash.com/collection/"+collection+"/"+w+"x"+h;   //+"/daily";
+var imagesrc =  "https://source.unsplash.com/collection/"+collection+"/"+w+"x"+h+"/daily";
 document.getElementById("background").src=imagesrc;
 var now;
 
