@@ -35,7 +35,7 @@ if (hour >= 5 && hour < 12) {
 document.getElementsByClassName("greeting")[0].innerText = greeting;
 
 
-var quoteurl = "https://daily.app.5ls.de/qod/full/students.json"
+var quoteurl = "https://daily.5ls.de/qod/full/students.json"
 
 fetch(quoteurl).then(function(response) {
   return response.json();
