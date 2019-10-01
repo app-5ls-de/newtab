@@ -30,12 +30,12 @@ a{
   bottom: 0;
 }
 
-.time{
+#time{
   transition: transform .5s ease,opacity .5s ease;
   font-size: 750%;
 }
 
-.greeting{
+#greeting{
   transition: transform .5s ease,opacity .5s ease;
   font-size: 337.5%;
 }
@@ -45,22 +45,22 @@ a{
   font-size: 1.125rem;
 }
 
-.quote-text{
+#quote-text{
   transform: translateY(0.6rem);
   transition: all .35s ease;
 }
 
-.quote-author{
+#quote-author{
   opacity: 0;
   line-height: 1.2;
   transition: all .35s ease;
 }
 
-.quote:hover > .quote-text{
+.quote:hover > #quote-text{
   transform: translateY(0);
 }
 
-.quote:hover > .quote-author{
+.quote:hover > #quote-author{
   opacity: 1;
 }
 
