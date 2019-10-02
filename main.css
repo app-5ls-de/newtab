@@ -135,7 +135,9 @@ a{
 .fade {
   position: relative;
 }
-
+.quote.fade::before {
+  width: 110%;
+}
 .fade::before{
   background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.05) 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0) 100%);
   background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 40%,rgba(0,0,0,0.05) 45%,rgba(0,0,0,0) 55%,rgba(0,0,0,0) 100%);
