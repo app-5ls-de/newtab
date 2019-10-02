@@ -27,8 +27,8 @@ function updateWeather(){
       function(data){ return data.time == nowunix }
     )[0];
     if (hour){
-      document.getElementById("weather-icon").src = "https://duckduckgo.com/assets/weather/svg/new/" + hour.icon + ".svg";
-      document.getElementById("weather-temperature").innerText=hour.temperature.toFixed(0) + "°C";
+      document.getElementById("weather-icon").src = "https://weather.app.5ls.de/icons/" + hour.icon + ".svg";
+      document.getElementById("weather-temperature").innerText=hour.temperature.toFixed(0);
       document.getElementById("weather-summary").innerText=hour.summary;
     }
   }).catch(function() {
