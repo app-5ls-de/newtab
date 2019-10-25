@@ -16,7 +16,7 @@ function updateTime(){
 }
 
 function updateWeather(){
-  var weatherurl = "https://daily.5ls.de/weather/munich-de.json";
+  var weatherurl = "https://api.weather.app.5ls.de/de/hourly/munich.json";
   var weather;
   fetch(weatherurl).then(function(response) {
     return response.json();
