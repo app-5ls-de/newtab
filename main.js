@@ -4,12 +4,12 @@ function backgroundimg(){
   var collection = "142371";
 
   var imagesrc =  "https://source.unsplash.com/collection/"+collection+"/"+w+"x"+h+"/daily.jpg";
-  document.getElementById("background").src=imagesrc;
+  document.getElementById("background-img").src=imagesrc;
 }
 
 function updateTime(){
   var now = new Date();
-  document.getElementById("time").innerText = now.toTimeString().slice(0,5);
+  document.getElementById("time-clock").innerText = now.toTimeString().slice(0,5);
   if (now.getSeconds() == 0 && now.getMinutes() == 0) {
     newHour();
   }
@@ -71,7 +71,7 @@ function updateGreeting(){
   }
   
   
-  document.getElementById("greeting").innerText = greeting;
+  document.getElementById("time-greeting").innerText = greeting;
 }
 
 function newHour(){
