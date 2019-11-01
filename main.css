@@ -126,7 +126,10 @@ a{
   width: min-content;
   margin-left: auto;
   margin-right: auto;
-   
+}
+
+.weather > .fade{
+  margin-bottom: auto;
 }
 
 .fade::before{
