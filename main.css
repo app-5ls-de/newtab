@@ -4,6 +4,7 @@ body{
   color: #fff;
   font-size: 100%;
   user-select: none;
+  overflow: hidden;
 }
 
 img#background-img{
