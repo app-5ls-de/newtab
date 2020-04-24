@@ -4,43 +4,96 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="main.css">
+<style>
+body{
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  margin: 0;
+  color: #fff;
+  font-size: 100%;
+  user-select: none;
+}
+
+img#background-img{
+  position:fixed;
+  top:-10vh;
+  left:0px;
+  width:100vw;
+  min-height:110vh;
+  z-index:-2;
+}
+
+.main{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+
+#time-clock{
+  font-size: 7rem;
+}
+
+#time-greeting{
+  font-size: 3rem;
+}
+.time{
+  padding: 3rem;
+  text-align: center;
+}
+
+
+</style>
     <title>newtab</title>
   </head>
   <body>
     <div class="all">
       <div class="background">
-        <img id="background-img" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD//gATQ3JlYXRlZCB3aXRoIEdJTVD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wgARCAABAAEDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAAv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAASf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAEFAn//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAEDAQE/AX//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAECAQE/AX//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAY/An//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAE/IX//2gAMAwEAAgADAAAAEB//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAEDAQE/EH//xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAECAQE/EH//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAE/EH//2Q==" alt="background">
+        <img id="background-img" src="/background.jpg" alt="background">
       </div>
-      <div class="main">
-        <div class="ddg">
-          <iframe src="https://duckduckgo.com/search.html?width=440&prefill=Search&focus=yes" style="overflow:hidden;margin:0;padding:0;width:448px;height:40px;" frameborder="0"></iframe>
-        </div>
-        <div class="weather" style="display:none">
-          <div class="fade">
-            <div>
-              <img id="weather-icon" alt="weather icon">
-              <span id="weather-temperature"></span><span id="weather-celsius">°C</span>
-            </div>
-            <div>
-              <span id="weather-summary"></span>
-            </div>
-          </div>
-        </div>
+      <div class="main"> 
         <div class="time">
-          <div class="fade">
-            <div id="time-clock">00:00</div>
-            <div id="time-greeting">Good day</div>
-          </div>
-        </div>
-        <div class="quote">
-          <div class="fade">
-            <div id="quote-text"></div>
-            <span id="quote-author"><a href=""></a></span>
-          </div>
+          <div id="time-clock">00:00</div>
+          <div id="time-greeting">Good day</div>
         </div>
       </div>
     </div>
-    <script src="main.js"></script>
+<script>
+function updateTime(){
+  var now = new Date();
+  document.getElementById("time-clock").innerText = now.toTimeString().slice(0,5);
+  if (now.getSeconds() == 0 && now.getMinutes() == 0) {
+    updateGreeting();
+  }
+}
+
+
+function updateGreeting(){
+
+  var hour = Number(new Date().toTimeString().slice(0,2));
+
+  var greeting;
+  
+  if (hour >= 5 && hour < 12) {
+    greeting = "Good morning";
+  } else if (hour >= 12 && hour < 18) {
+    greeting = "Good afternoon";
+  } else if (hour >= 18 && hour < 21) {
+    greeting = "Good evening";
+  } else if (hour >= 21 || hour < 5) {
+    greeting = "Good night";
+  } else {
+    greeting = "Good day";
+  }
+  
+  
+  document.getElementById("time-greeting").innerText = greeting;
+}
+
+
+updateGreeting();
+updateTime();
+
+setInterval(updateTime, 1000);
+
+</script>
   </body>
 </html>
