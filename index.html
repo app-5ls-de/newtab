@@ -1,100 +1,101 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<style>
-body{
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  margin: 0;
-  color: #fff;
-  font-size: 100%;
-  user-select: none;
-  background-color: black;
-}
 
-img#background-img{
-  position:fixed;
-  top:-10vh;
-  left:0px;
-  width:100vw;
-  min-height:110vh;
-  z-index:-2;
-}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      margin: 0;
+      color: #fff;
+      font-size: 100%;
+      user-select: none;
+      background-color: black;
+    }
 
-.main{
-  display: flex;
-  flex-direction: row-reverse;
-}
+    img#background-img {
+      position: fixed;
+      top: -10vh;
+      left: 0px;
+      width: 100vw;
+      min-height: 110vh;
+      z-index: -2;
+    }
 
-
-#time-clock{
-  font-size: 7rem;
-}
-
-#time-greeting{
-  font-size: 3rem;
-}
-.time{
-  padding: 3rem;
-  text-align: center;
-}
+    .main {
+      display: flex;
+      flex-direction: row-reverse;
+    }
 
 
-</style>
-    <title>newtab</title>
-  </head>
-  <body>
-    <div class="all">
-      <div class="background">
-        <img id="background-img" src="/background.jpg" alt="background">
-      </div>
-      <div class="main"> 
-        <div class="time">
-          <div id="time-clock">00:00</div>
-          <div id="time-greeting">Good day</div>
-        </div>
+    #time-clock {
+      font-size: 7rem;
+    }
+
+    #time-greeting {
+      font-size: 3rem;
+    }
+
+    .time {
+      padding: 3rem;
+      text-align: center;
+    }
+  </style>
+  <title>newtab</title>
+</head>
+
+<body>
+  <div class="all">
+    <div class="background">
+      <img id="background-img" src="/background.jpg" alt="background">
+    </div>
+    <div class="main">
+      <div class="time">
+        <div id="time-clock">00:00</div>
+        <div id="time-greeting">Good day</div>
       </div>
     </div>
-<script>
-function updateTime(){
-  var now = new Date();
-  document.getElementById("time-clock").innerText = now.toTimeString().slice(0,5);
-  if (now.getSeconds() == 0 && now.getMinutes() == 0) {
+  </div>
+  <script>
+    function updateTime() {
+      var now = new Date();
+      document.getElementById("time-clock").innerText = now.toTimeString().slice(0, 5);
+      if (now.getSeconds() == 0 && now.getMinutes() == 0) {
+        updateGreeting();
+      }
+    }
+
+
+    function updateGreeting() {
+
+      var hour = Number(new Date().toTimeString().slice(0, 2));
+
+      var greeting;
+
+      if (hour >= 5 && hour < 12) {
+        greeting = "Good morning";
+      } else if (hour >= 12 && hour < 18) {
+        greeting = "Good afternoon";
+      } else if (hour >= 18 && hour < 21) {
+        greeting = "Good evening";
+      } else if (hour >= 21 || hour < 5) {
+        greeting = "Good night";
+      } else {
+        greeting = "Good day";
+      }
+
+
+      document.getElementById("time-greeting").innerText = greeting;
+    }
+
+
     updateGreeting();
-  }
-}
+    updateTime();
 
+    setInterval(updateTime, 1000);
 
-function updateGreeting(){
+  </script>
+</body>
 
-  var hour = Number(new Date().toTimeString().slice(0,2));
-
-  var greeting;
-  
-  if (hour >= 5 && hour < 12) {
-    greeting = "Good morning";
-  } else if (hour >= 12 && hour < 18) {
-    greeting = "Good afternoon";
-  } else if (hour >= 18 && hour < 21) {
-    greeting = "Good evening";
-  } else if (hour >= 21 || hour < 5) {
-    greeting = "Good night";
-  } else {
-    greeting = "Good day";
-  }
-  
-  
-  document.getElementById("time-greeting").innerText = greeting;
-}
-
-
-updateGreeting();
-updateTime();
-
-setInterval(updateTime, 1000);
-
-</script>
-  </body>
 </html>
