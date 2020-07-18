@@ -39,8 +39,8 @@
       height: 3rem;
       width: 3rem;
       background: none;
-    outline: none;
-    border: none;
+      outline: none;
+      border: none;
     }
 
     #search_button>svg {
@@ -153,7 +153,7 @@
     }
 
     search_input.addEventListener("keyup", function (event) {
-      if (event.keyCode === 13) {
+      if (event.keyCode === 13) { //enter key
         event.preventDefault()
         search_button.click()
       }
