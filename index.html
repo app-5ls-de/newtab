@@ -107,13 +107,7 @@
       document.getElementById("time-clock").innerText = now.toTimeString().slice(0, 5);
       if (now.getMinutes() == 0) {
         updateGreeting();
-      }
-    }
-
-
-    function updateGreeting() {
-
-      var hour = Number(new Date().toTimeString().slice(0, 2));
+      var hour = Number(now.toTimeString().slice(0, 2));
 
       var greeting;
 
@@ -131,10 +125,9 @@
 
 
       document.getElementById("time-greeting").innerText = greeting;
+      }
     }
 
-
-    updateGreeting();
     updateTime();
 
     setInterval(updateTime, 30*1000);
