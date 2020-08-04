@@ -105,7 +105,7 @@
     function updateTime() {
       var now = new Date();
       document.getElementById("time-clock").innerText = now.toTimeString().slice(0, 5);
-      if (now.getSeconds() == 0 && now.getMinutes() == 0) {
+      if (now.getMinutes() == 0) {
         updateGreeting();
       }
     }
@@ -137,7 +137,7 @@
     updateGreeting();
     updateTime();
 
-    setInterval(updateTime, 1000);
+    setInterval(updateTime, 30*1000);
 
 
 
