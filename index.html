@@ -103,34 +103,34 @@
   </div>
   <script>
     function updateTime() {
-      var now = new Date();
-      document.getElementById("time-clock").innerText = now.toTimeString().slice(0, 5);
+      var now = new Date()
+      document.getElementById("time-clock").innerText = now.toTimeString().slice(0, 5)
       if (now.getMinutes() == 0) {
-        updateGreeting();
-      var hour = Number(now.toTimeString().slice(0, 2));
+        updateGreeting()
+        var hour = Number(now.toTimeString().slice(0, 2))
 
-      var greeting;
+        var greeting
 
-      if (hour >= 5 && hour < 12) {
-        greeting = "Good morning";
-      } else if (hour >= 12 && hour < 18) {
-        greeting = "Good afternoon";
-      } else if (hour >= 18 && hour < 21) {
-        greeting = "Good evening";
-      } else if (hour >= 21 || hour < 5) {
-        greeting = "Good night";
-      } else {
-        greeting = "Good day";
-      }
+        if (hour >= 5 && hour < 12) {
+          greeting = "Good morning"
+        } else if (hour >= 12 && hour < 18) {
+          greeting = "Good afternoon"
+        } else if (hour >= 18 && hour < 21) {
+          greeting = "Good evening"
+        } else if (hour >= 21 || hour < 5) {
+          greeting = "Good night"
+        } else {
+          greeting = "Good day"
+        }
 
 
-      document.getElementById("time-greeting").innerText = greeting;
+        document.getElementById("time-greeting").innerText = greeting
       }
     }
 
-    updateTime();
+    updateTime()
 
-    setInterval(updateTime, 30*1000);
+    setInterval(updateTime, 30 * 1000)
 
 
 
@@ -150,7 +150,7 @@
         event.preventDefault()
         search_button.click()
       }
-    });
+    })
 
   </script>
 </body>
