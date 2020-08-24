@@ -3,7 +3,24 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Simple design for the new tab with background image and search bar">
+  <meta name="author" content="Patrick Haußmann">
+  <meta name="web_author" content="Patrick Haußmann">
+  <link rel="author" href="https://patrickhaussmann.de/" />
+  <meta name="language" content="en">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#960e4d">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="apple-mobile-web-app-title" content="Newtab">
+  <meta name="application-name" content="Newtab">
+  <meta name="msapplication-TileColor" content="#960e4d">
+  <meta name="msapplication-config" content="/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -75,7 +92,7 @@
       text-align: center;
     }
   </style>
-  <title>newtab</title>
+  <title>Newtab</title>
 </head>
 
 <body>
@@ -152,6 +169,23 @@
       }
     })
 
+  </script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      if (navigator.serviceWorker.controller) {
+        console.log("[ServiceWorker] active service worker found");
+      } else {
+        // Register the service worker
+        navigator.serviceWorker
+          .register("/service-worker.js", {
+            scope: "/"
+          })
+          .then(function (reg) {
+            console.log('[ServiceWorker] Service worker registered.', reg);
+          });
+      }
+    }
   </script>
 </body>
 
